@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:task_manager/Theme/colors.dart';
+import 'package:task_manager/screens/calendar_screen.dart';
 import 'package:task_manager/widgets/active_projects_card.dart';
 import 'package:task_manager/widgets/calender_button.dart';
 import 'package:task_manager/widgets/leadings.dart';
@@ -60,8 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: width * 0.42),
-                      child: CalenderButton(
-                          MyColors.Green, Icons.calendar_today, 30),
+                      child: GestureDetector(
+                        onTap:(){
+                          Navigator.push(context,MaterialPageRoute(builder: (context) => CalendarPage()));
+                        },
+                        child: CalenderButton(
+                            MyColors.Green, Icons.calendar_today, 30),
+                      ),
                     ),
                   ],
                 ),
